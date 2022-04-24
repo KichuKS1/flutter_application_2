@@ -17,64 +17,67 @@ class _HomePageState extends State<HomePage> {
     var timezoneString = now.timeZoneOffset.toString().split('.').first;
     var offsetSign = '';
     if (!timezoneString.startsWith('-')) offsetSign = '+';
+    // ignore: avoid_print
     print(timezoneString);
 
     return Scaffold(
-        backgroundColor: Color(0xFF2D2F41),
+        backgroundColor: const Color(0xFF2D2F41),
         body: Row(children: <Widget>[
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              // ignore: deprecated_member_use
               FlatButton(
                   onPressed: () {},
-                  child: Column(children: <Widget>[
+                  child: Column(children: const <Widget>[
                     FlutterLogo(),
                     Text('Clock',
                         style: TextStyle(color: Colors.white, fontSize: 24))
                   ])),
             ],
           ),
-          VerticalDivider(
+          const VerticalDivider(
             color: Colors.white54,
             width: 1,
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 64),
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 64),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Clock',
                     style: TextStyle(color: Colors.white, fontSize: 24),
                   ),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
                   Text(
                     formattedTime,
-                    style: TextStyle(color: Colors.white, fontSize: 64),
+                    style: const TextStyle(color: Colors.white, fontSize: 64),
                   ),
                   Text(
                     formattedDate,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: const TextStyle(color: Colors.white, fontSize: 20),
                   ),
-                  ClockView(),
-                  Text(
+                  const ClockView(),
+                  const Text(
                     'Timezone',
                     style: TextStyle(color: Colors.white, fontSize: 24),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Row(
                     children: <Widget>[
-                      Icon(
+                      const Icon(
                         Icons.language,
                         color: Colors.white,
                       ),
-                      SizedBox(width: 16),
+                      const SizedBox(width: 16),
                       Text(
                         'UTC' + offsetSign + timezoneString,
-                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 14),
                       ),
                     ],
                   )
@@ -85,5 +88,6 @@ class _HomePageState extends State<HomePage> {
         ]));
   }
 
+  // ignore: non_constant_identifier_names
   DateFormat(String s) {}
 }
