@@ -17,21 +17,23 @@ class _HomePageState extends State<HomePage> {
     var timezoneString = now.timeZoneOffset.toString().split('.').first;
     var offsetSign = '';
     if (!timezoneString.startsWith('-')) offsetSign = '+';
+    // ignore: avoid_print
     print(timezoneString);
 
+    var children2 = <Widget>[
+      // ignore: deprecated_member_use
+      buildMenuButton('Clock', 'assets/clock_icon.png'),
+      buildMenuButton('Alarm', 'assets/alarm_icon.png'),
+      buildMenuButton('Timer', 'assets/timer_icon.png'),
+      buildMenuButton('Stopwatch', 'assets/stopwatch_icon.png'),
+    ];
     return Scaffold(
       backgroundColor: const Color(0xFF2D2F41),
       body: Row(
         children: <Widget>[
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              // ignore: deprecated_member_use
-              buildMenuButton('Clock', 'assets/clock_icon.png'),
-              buildMenuButton('Alarm', 'assets/alarm_icon.png'),
-              buildMenuButton('Timer', 'assets/timer_icon.png'),
-              buildMenuButton('Stopwatch', 'assets/stopwatch_icon.png'),
-            ],
+            children: children2,
           ),
           const VerticalDivider(
             color: Colors.white54,
@@ -43,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Flexible(
+                  const Flexible(
                     flex: 1,
                     fit: FlexFit.tight,
                     child: Text(
@@ -91,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                     fit: FlexFit.tight,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
+                      children: const <Widget>[
                         Text(
                           'Timezone',
                           style: TextStyle(
@@ -103,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Row(
@@ -130,25 +132,8 @@ class _HomePageState extends State<HomePage> {
       ),
     );
 
-    // ignore: dead_code
-    Padding buildMenuButton(String title, String image) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
-        child: TextButton(
-            onPressed: () {},
-            child: Column(children: <Widget>[
-              Image.asset(
-                image,
-                scale: 1.5,
-              ),
-              SizedBox(height: 16),
-              Text(
-                title ?? '',
-                style: TextStyle(
-                    fontFamily: 'avenir', color: Colors.white, fontSize: 14),
-              ),
-            ])),
-      );
-    }
+// ignore: dead_code
   }
+
+  buildMenuButton(String title, String image) {}
 }

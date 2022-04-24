@@ -9,7 +9,7 @@ class ClockView extends StatefulWidget {
 
   @override
   // ignore: no_logic_in_create_state
-  _ClockViewState createState() => _ClockViewState.clockviewstate();
+  State<ClockView> createState() => _ClockViewState();
 }
 
 class _ClockViewState extends State<ClockView> {
@@ -35,8 +35,6 @@ class _ClockViewState extends State<ClockView> {
       ),
     );
   }
-
-  static clockviewstate() {}
 }
 
 class ClockPainter extends CustomPainter {
