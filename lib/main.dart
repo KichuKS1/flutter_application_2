@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/clock_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ModernClock());
 }
 
 class MyApp extends StatelessWidget {
